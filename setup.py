@@ -1,25 +1,27 @@
 # Environment Setup in MacOS
 
-1. Install polyglot in a virtual environment
+1. Install conda and pyicu in a virtual environment
 ```
 python3 -m venv myenv
 source myenv/bin/activate
+curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+bash Miniconda3-latest-MacOSX-x86_64.sh
+source ~/miniconda3/bin/activate
+
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+conda config --set show_channel_urls yes
+
+conda install -c conda-forge pyicu
+```
+
+2. Install polyglot
+```
 // https://mirrors.aliyun.com/pypi/simple
 // https://pypi.douban.com/simple
 pip install polyglot -i https://pypi.tuna.tsinghua.edu.cn/simple -v
 which polyglot
-```
-
-2. install dependency pyicu
-```
-// 1) install icu4c
-ls /usr/local/Cellar/icu4c@77 //77.1
-export ICU_VERSION=77
-export PYICU_INCLUDES=/usr/local/Cellar/icu4c@77/77.1/include 
-export PYICU_LFLAGS=-L/usr/local/Cellar/icu4c@77/77.1/lib 
-
-// 2) install pyicu
-pip install pyicu -i https://pypi.tuna.tsinghua.edu.cn/simple -v --upgrade
 ```
 
 3. install other dependency
