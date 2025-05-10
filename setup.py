@@ -3,7 +3,9 @@
 1. Install polyglot in a virtual environment
 ```
 python3 -m venv myenv
-source myenv/bin/activate 
+source myenv/bin/activate
+// https://mirrors.aliyun.com/pypi/simple
+// https://pypi.douban.com/simple
 pip install polyglot -i https://pypi.tuna.tsinghua.edu.cn/simple -v
 which polyglot
 ```
